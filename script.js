@@ -1,6 +1,6 @@
 /**
  * Represents the options rock, paper, and scissors in the game.
- * @constant {tring}
+ * @constant {string}
  */
 const OPT_ROCK = 'rock';
 const OPT_PAPER = 'paper';
@@ -30,4 +30,39 @@ function getComputerChoice(){
         case 3:
             return OPT_SCISSORS;
     }
+}
+
+function getPlayerChoice(){
+    let playerChoice = prompt('Please enter either rock, paper, or scissors:');
+    if(playerChoice === null){
+        return;
+    }
+
+    if(playerChoice === ''){
+        alert('To start playing, please enter either rock, paper, or scissors.');
+        return getPlayerChoice();
+
+    }
+
+    playerChoice.trim().toLowerCase();
+    if(validatePlayerChoice(playerChoice)){
+        return playerChoice;
+    }
+}
+
+function validatePlayerChoice(playerChoice){
+    let regex = /[^a-zA-Z]/;
+    if(!isNaN(playerChoice) || regex.test(playerChoice)){
+        alert('Please enter letters only. Numbers and special characters are not allowed.');
+        return getPlayerChoice();
+    }
+
+    if(playerChoice !== 'rock' && 
+        playerChoice !== 'paper' &&
+        playerChoice !== 'scissors') {
+            alert('Please enter either rock, paper, or scissors only.');
+            return getPlayerChoice();
+    }
+
+    return true;
 }
