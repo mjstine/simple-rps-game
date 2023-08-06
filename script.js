@@ -21,8 +21,8 @@ function getRandomInt(){
  * @returns {string} The computer's choice - either 'rock', 'paper', or 'scissors'.
  */
 function getComputerChoice(){
-    let randNum = getRandomInt();
-    switch(randNum){
+    let computerChoice = getRandomInt();
+    switch(computerChoice){
         case 1:
             return OPT_ROCK;
         case 2:
