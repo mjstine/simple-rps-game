@@ -80,3 +80,62 @@ function validatePlayerChoice(playerChoice){
 
     return true;
 }
+
+function playRound(playerSelection, computerSelection){
+    if(playerSelection === computerSelection){
+        return {
+            isWinner: null,
+            player: playerSelection,
+            computer: computerSelection,
+            msg: 'DRAW'
+        };
+    }
+
+    if((playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')){
+            return {
+                isWinner: true,
+                player: playerSelection,
+                computer: computerSelection,
+                msg: 'PLAYER WINS!'
+            };
+        }
+    
+    return {
+        isWinner: false,
+        player: playerSelection,
+        computer: computerSelection,
+        msg: 'COMPUTER WINS!'
+    };
+}
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+
+    while(playerScore !== 5 && computerScore !== 5){
+        let gamePlay = playRound(getPlayerChoice(), getComputerChoice());
+        switch(gamePlay.isWinner){
+            case null:
+                console.log(`${gamePlay.msg} | Player: ${gamePlay.player}; Computer: ${gamePlay.computer} | Score: P-${playerScore}/C-${computerScore}`);
+                continue;
+            case true:
+                playerScore++;
+                console.log(`${gamePlay.msg} | Player: ${gamePlay.player}; Computer: ${gamePlay.computer} | Score: P-${playerScore}/C-${computerScore}`);
+                continue;
+            case false:
+                computerScore++;
+                console.log(`${gamePlay.msg} | Player: ${gamePlay.player}; Computer: ${gamePlay.computer} | Score: P-${playerScore}/C-${computerScore}`);
+                continue;
+        }
+    }
+
+    if(playerScore > computerScore){
+        return console.log(`YOU ARE THE WINNER!`);
+    } else {
+        return console.log(`COMPUTER IS THE WINNER!`);
+    }
+}
+
+game();
