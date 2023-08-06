@@ -32,6 +32,12 @@ function getComputerChoice(){
     }
 }
 
+/**
+ * Prompt the player to enter their choice (rock, paper, or scissors).
+ * Validates the input and returns the player's choice if valid.
+ * @returns {string|undefined} The player's choice - rock, paper, or scissors. Returns undefined if 
+ * the prompt is canceled.
+ */
 function getPlayerChoice(){
     let playerChoice = prompt('Please enter either rock, paper, or scissors:');
     if(playerChoice === null){
@@ -50,6 +56,14 @@ function getPlayerChoice(){
     }
 }
 
+/**
+ * Validates the player's choice to ensure it contains only letters (no numbers or special characters)
+ * and is one of the valid options (rock, paper, or scissors).
+ * If the input is invalid, it prompts the player again for a valid choice.
+ * @param {string} playerChoice - The player's input choice to validate.
+ * @returns {string|boolean} The valid player's choice (rock, paper, or scissors) if input is valid; 
+ * otherwise, returns true to indicate successful validation.
+ */
 function validatePlayerChoice(playerChoice){
     let regex = /[^a-zA-Z]/;
     if(!isNaN(playerChoice) || regex.test(playerChoice)){
