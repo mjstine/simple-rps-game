@@ -74,9 +74,9 @@ function validatePlayerChoice(playerChoice) {
   }
 
   if (
-    playerChoice !== "rock" &&
-    playerChoice !== "paper" &&
-    playerChoice !== "scissors"
+    playerChoice !== OPT_ROCK &&
+    playerChoice !== OPT_PAPER &&
+    playerChoice !== OPT_SCISSORS
   ) {
     alert("Please enter either rock, paper, or scissors only.");
     return getPlayerChoice();
@@ -108,9 +108,9 @@ function playRound(playerSelection, computerSelection) {
   }
 
   if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
+    (playerSelection === OPT_ROCK && computerSelection === OPT_SCISSORS) ||
+    (playerSelection === OPT_PAPER && computerSelection === OPT_ROCK) ||
+    (playerSelection === OPT_SCISSORS && computerSelection === OPT_PAPER)
   ) {
     return {
       isWinner: true,
