@@ -40,13 +40,13 @@ function getComputerChoice() {
  * or undefined if the player cancels the prompt or enters an empty choice.
  */
 function getPlayerChoice() {
-  let playerChoice = prompt("Please enter either rock, paper, or scissors:");
+  let playerChoice = prompt("CHOOSE: Rock, Paper, or Scissors");
   if (playerChoice === null) {
     return;
   }
 
   if (playerChoice === "") {
-    alert("To start playing, please enter either rock, paper, or scissors.");
+    alert("INFO: You have to choose from rock, paper, or scissors to start playing.");
     return getPlayerChoice();
   }
 
@@ -68,7 +68,7 @@ function validatePlayerChoice(playerChoice) {
 
   if (!isNaN(playerChoice) || regex.test(playerChoice)) {
     alert(
-      "Please enter letters only. Numbers and special characters are not allowed."
+      "WARNING: Invalid input! Please try again."
     );
     return getPlayerChoice();
   }
@@ -78,7 +78,7 @@ function validatePlayerChoice(playerChoice) {
     playerChoice !== OPT_PAPER &&
     playerChoice !== OPT_SCISSORS
   ) {
-    alert("Please enter either rock, paper, or scissors only.");
+    alert("INFO: Please just input either rock, paper, or scissors.");
     return getPlayerChoice();
   }
 
