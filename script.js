@@ -40,20 +40,19 @@ function getComputerChoice() {
  * or undefined if the player cancels the prompt or enters an empty choice.
  */
 function getPlayerChoice() {
+  let playerChoice;
 
-  while (playerChoice !== null) {
-    const playerChoice = prompt("CHOOSE: Rock, Paper, or Scissors");
-    
+  while (playerChoice !== null) {  
+    playerChoice = prompt("CHOOSE: Rock, Paper, or Scissors");
+
     if (playerChoice === null) {
-      return;
+      return null;
     }
 
     if (playerChoice === "") {
       alert("INFO: You have to choose from rock, paper, or scissors to start playing.");
       continue;
-    }
-
-    if (playerChoice !== "") {
+    } else {
       if (validatePlayerChoice(playerChoice)) {
         return playerChoice;
       }
@@ -176,4 +175,5 @@ function game() {
   }
 }
 
-game();
+// game();
+console.log(getPlayerChoice());
