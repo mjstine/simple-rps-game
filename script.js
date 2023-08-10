@@ -35,14 +35,14 @@ function getComputerChoice() {
 /**
  * Prompts the player to enter their choice for the game (rock, paper, or scissors).
  * The function handles various scenarios, including canceling the game, empty input, and validation of the choice.
- * 
+ *
  * @returns {string|undefined} - The player's valid choice (one of "rock", "paper", or "scissors") in lowercase,
  * or undefined if the player cancels the prompt or enters an empty choice.
  */
 function getPlayerChoice() {
   let playerChoice;
 
-  while (playerChoice !== null) {  
+  while (playerChoice !== null) {
     playerChoice = prompt("CHOOSE: Rock, Paper, or Scissors");
 
     if (playerChoice === null) {
@@ -50,11 +50,16 @@ function getPlayerChoice() {
     }
 
     if (playerChoice === "") {
-      alert("INFO: You have to choose from rock, paper, or scissors to start playing.");
+      alert(
+        "INFO: You have to choose from rock, paper, or scissors to start playing."
+      );
       continue;
     } else {
       if (validatePlayerChoice(playerChoice)) {
         return playerChoice;
+      } else {
+        alert("WARNING!: Invalid input! Please try again.");
+        continue;
       }
     }
   }
@@ -63,36 +68,30 @@ function getPlayerChoice() {
 /**
  * Validates the player's choice for a game. The function checks if the entry contains a number or special character.
  * If so, it prompts the player to enter a valid entry. Otherwise, it returns true confirming that the entry is valid.
- * 
+ *
  * @param {string} playerChoice - The player's input to be validated.
  * @returns {boolean} - Returns true if the player's input is valid, otherwise recursively prompts for a valid input.
  */
 function validatePlayerChoice(playerChoice) {
+  playerChoice = playerChoice.trim().toLowerCase();
   let regex = /[^a-zA-Z]/;
 
-  if (!isNaN(playerChoice) || regex.test(playerChoice)) {
-    alert(
-      "WARNING: Invalid input! Please try again."
-    );
-    return getPlayerChoice();
-  }
-
   if (
-    playerChoice !== OPT_ROCK &&
-    playerChoice !== OPT_PAPER &&
-    playerChoice !== OPT_SCISSORS
+    !regex.test(playerChoice) &&
+    (playerChoice === OPT_ROCK ||
+      playerChoice === OPT_PAPER ||
+      playerChoice === OPT_SCISSORS)
   ) {
-    alert("INFO: Please just input either rock, paper, or scissors.");
-    return getPlayerChoice();
+    return true;
+  } else {
+    return false;
   }
-
-  return true;
 }
 
 /**
  * Simulates a single round of the game (rock, paper, scissors) between the player and the computer.
  * Determines the winner of the round based on the choices made by both the player and the computer.
- * 
+ *
  * @param {string} playerSelection - The player's choice for the round. Must be one of: "rock", "paper", or "scissors".
  * @param {string} computerSelection - The computer's choice for the round. Must be one of: "rock", "paper", or "scissors".
  * @returns {Object} - An object containing the result of the round.
@@ -137,7 +136,7 @@ function playRound(playerSelection, computerSelection) {
  * The game is played in rounds until either the player or the computer reaches a score of 5.
  * The player and computer make their choices for each round, and the outcome is displayed in the console.
  * The game continues until one of the players reaches a score of 5.
- * 
+ *
  * @returns {void} - The function does not return a value directly but logs the result of each round and the final winner to
  * the console.
  */
@@ -177,3 +176,4 @@ function game() {
 
 // game();
 console.log(getPlayerChoice());
+console.log();
