@@ -13,6 +13,7 @@ const OPT_SCISSORS = "scissors";
 function getRandomInt() {
   const MIN = 1;
   const MAX = 3;
+  
   return Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
 }
 
@@ -21,7 +22,8 @@ function getRandomInt() {
  * @returns {string} The computer's choice - either 'rock', 'paper', or 'scissors'.
  */
 function getComputerChoice() {
-  let computerChoice = getRandomInt();
+  const computerChoice = getRandomInt();
+
   switch (computerChoice) {
     case 1:
       return OPT_ROCK;
