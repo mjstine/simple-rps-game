@@ -86,90 +86,75 @@ function validatePlayerChoice(playerChoice) {
 }
 
 /**
- * Simulates a single round of the game (rock, paper, scissors) between the player and the computer.
- * Determines the winner of the round based on the choices made by both the player and the computer.
- *
- * @param {string} playerSelection - The player's choice for the round. Must be one of: "rock", "paper", or "scissors".
- * @param {string} computerSelection - The computer's choice for the round. Must be one of: "rock", "paper", or "scissors".
- * @returns {Object} - An object containing the result of the round.
- *   - isWinner: A boolean indicating if the player won the round (true), lost the round (false), or it was a draw (null).
- *   - player: The player's choice for the round (one of: "rock", "paper", or "scissors").
- *   - computer: The computer's choice for the round (one of: "rock", "paper", or "scissors").
- *   - msg: A message describing the outcome of the round, e.g., "PLAYER WINS!", "COMPUTER WINS!", or "DRAW".
+ * Simulates a round of a rock-paper-scissors game between a player and the computer.
+ * @param {string} playerSelection - The player's choice (should be 'rock', 'paper', or 'scissors').
+ * @param {string} computerSelection - The computer's randomly generated choice.
+ * @returns {?boolean} The result of the game round:
+ *   - `true` if the player wins.
+ *   - `false` if the computer wins.
+ *   - `undefined` if the round is a draw.
+ *   - `null` if `playerSelection` is `null`.
  */
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return {
-      isWinner: null,
-      player: playerSelection,
-      computer: computerSelection,
-      msg: "DRAW",
-    };
+  if (playerSelection === null) {
+    return null;
   }
 
-  if (
+  if (playerSelection === computerSelection) {
+    return undefined;
+  } else if (
     (playerSelection === OPT_ROCK && computerSelection === OPT_SCISSORS) ||
     (playerSelection === OPT_PAPER && computerSelection === OPT_ROCK) ||
     (playerSelection === OPT_SCISSORS && computerSelection === OPT_PAPER)
   ) {
-    return {
-      isWinner: true,
-      player: playerSelection,
-      computer: computerSelection,
-      msg: "PLAYER WINS!",
-    };
+    return true;
+  } else {
+    return false;
   }
-
-  return {
-    isWinner: false,
-    player: playerSelection,
-    computer: computerSelection,
-    msg: "COMPUTER WINS!",
-  };
 }
 
 /**
- * Starts and manages a game of rock, paper, scissors between the player and the computer.
- * The game is played in rounds until either the player or the computer reaches a score of 5.
- * The player and computer make their choices for each round, and the outcome is displayed in the console.
- * The game continues until one of the players reaches a score of 5.
- *
- * @returns {void} - The function does not return a value directly but logs the result of each round and the final winner to
- * the console.
+ * Simulates a rock-paper-scissors game between a player and a computer until one of them reaches
+ * a score of 5.
  */
 function game() {
   let playerScore = 0;
   let computerScore = 0;
 
   while (playerScore !== 5 && computerScore !== 5) {
-    let gamePlay = playRound(getPlayerChoice(), getComputerChoice());
-    switch (gamePlay.isWinner) {
-      case null:
+    const player = getPlayerChoice();
+    const computer = getComputerChoice();
+
+    if (player === null) {
+      return console.log(`GAME CANCELLED!`);
+    }
+
+    switch (playRound(player, computer)) {
+      case undefined:
         console.log(
-          `${gamePlay.msg} | Player: ${gamePlay.player}; Computer: ${gamePlay.computer} | Score: P-${playerScore}/C-${computerScore}`
+          `DRAW! | Player: ${player} - ${playerScore} | Computer: ${computer} - ${computerScore}`
         );
         continue;
       case true:
         playerScore++;
         console.log(
-          `${gamePlay.msg} | Player: ${gamePlay.player}; Computer: ${gamePlay.computer} | Score: P-${playerScore}/C-${computerScore}`
+          `PLAYER WIN! | Player: ${player} - ${playerScore} | Computer: ${computer} - ${computerScore}`
         );
         continue;
       case false:
         computerScore++;
         console.log(
-          `${gamePlay.msg} | Player: ${gamePlay.player}; Computer: ${gamePlay.computer} | Score: P-${playerScore}/C-${computerScore}`
+          `COMPUTER WIN! | Player: ${player} - ${playerScore} | Computer: ${computer} - ${computerScore}`
         );
         continue;
     }
   }
 
-  if (playerScore > computerScore) {
+  if (playerScore > computerScore && player) {
     return console.log(`YOU ARE THE WINNER!`);
   } else {
     return console.log(`COMPUTER IS THE WINNER!`);
   }
 }
 
-// game();
-console.log(getPlayerChoice());
+game();
