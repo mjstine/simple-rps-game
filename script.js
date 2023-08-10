@@ -13,7 +13,7 @@ const OPT_SCISSORS = "scissors";
 function getRandomInt() {
   const MIN = 1;
   const MAX = 3;
-  
+
   return Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
 }
 
@@ -35,11 +35,8 @@ function getComputerChoice() {
 }
 
 /**
- * Prompts the player to enter their choice for the game (rock, paper, or scissors).
- * The function handles various scenarios, including canceling the game, empty input, and validation of the choice.
- *
- * @returns {string|undefined} - The player's valid choice (one of "rock", "paper", or "scissors") in lowercase,
- * or undefined if the player cancels the prompt or enters an empty choice.
+ * Retrieves and validates the player's choice for the game.
+ * @returns {string | null} The player's valid choice (Rock, Paper, or Scissors), or null if canceled.
  */
 function getPlayerChoice() {
   let playerChoice;
@@ -68,15 +65,13 @@ function getPlayerChoice() {
 }
 
 /**
- * Validates the player's choice for a game. The function checks if the entry contains a number or special character.
- * If so, it prompts the player to enter a valid entry. Otherwise, it returns true confirming that the entry is valid.
- *
- * @param {string} playerChoice - The player's input to be validated.
- * @returns {boolean} - Returns true if the player's input is valid, otherwise recursively prompts for a valid input.
+ * Validates the player's choice for the game.
+ * @param {string} playerChoice - The player's choice to be validated.
+ * @returns {boolean} True if the choice is valid (Rock, Paper, or Scissors), false otherwise.
  */
 function validatePlayerChoice(playerChoice) {
   playerChoice = playerChoice.trim().toLowerCase();
-  let regex = /[^a-zA-Z]/;
+  const regex = /[^a-zA-Z]/;
 
   if (
     !regex.test(playerChoice) &&
@@ -178,4 +173,3 @@ function game() {
 
 // game();
 console.log(getPlayerChoice());
-console.log();
