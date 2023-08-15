@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #FED049;
+    box-shadow: 0 0 0 100vmax #FED049;
+    clip-path: inset(0 -100vmax);
+    margin: 0 5%;
+}
+
+.header {
+    padding: 4rem 0;
+}
+
+.header__title {
+    font-size: 3.052rem;
+    font-family: 'Bubblegum Sans', cursive;
+    text-align: center;
+}
+
+.main, .game-controls, .scoreboard, .game-choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main {
+    flex-direction: column;
+    padding: 2rem 0;
+}
+
+.scoreboard {
+    padding: 2rem 0;
+}
+
+.scoreboard__txt {
+    font-size: 1.953rem;
+    font-family: 'Bubblegum Sans', cursive;
+}
+
+.game-result__txt, .game-controls__btn, .game-choices__btn {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.game-controls__btn, .game-choices__btn {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    border: 4px solid black;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.game-controls__btn {
+    background-color: #68B984;
+    padding: 1rem 2rem;
+}
+
+.game-controls__btn--quit:disabled, .game-choices__btn:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.game-controls__btn--quit {
+    color: #FFFFFF;
+    background-color: #3D5656;
+    opacity: 1;
+}
+
+.game-choices__btn {
+    background-color: #CFFDE1;
+    padding: 1.5rem 3rem;
+    opacity: 1;
+}
+
