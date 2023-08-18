@@ -12,7 +12,7 @@ let gameResult = document.querySelector("#gameResult");
 let playerScore = 0;
 let computerScore = 0;
 
-function startGame() {
+const startGame = () => {
   playerPoint.textContent = "0";
   computerPoint.textContent = "0";
   gameResult.textContent = "";
@@ -22,9 +22,10 @@ function startGame() {
   paperBtn.disabled = false;
   scissorsBtn.disabled = false;
   startBtn.disabled = true;
-}
+  return;
+};
 
-function quitGame() {
+const quitGame = () => {
   gameResult.textContent = "GAME ENDED";
 
   quitBtn.disabled = true;
@@ -34,50 +35,62 @@ function quitGame() {
   startBtn.disabled = false;
   playerScore = 0;
   computerScore = 0;
-}
+  return;
+};
 
-function playRound(playerChoice) {
-  const computerChoices = ["rock", "paper", "scissors"];
-  const computerChoice =
-    computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-  if (playerChoice === computerChoice) {
-    // display outcome
-    gameResult.textContent = `IT'S A TIE! | Player: ${playerChoice.toUpperCase()} | Computer: ${computerChoice.toUpperCase()}`;
-    return;
+const getRoundResult = (player, computer) => {
+  if (player === computer) {
+    return undefined;
   }
 
   if (
-    (playerChoice === "rock" && computerChoice === "scissors") ||
-    (playerChoice === "paper" && computerChoice === "rock") ||
-    (playerChoice === "scissors" && computerChoice === "paper")
+    (player === "rock" && computer === "scissors") ||
+    (player === "paper" && computer === "rock") ||
+    (player === "scissors" && computer === "paper")
   ) {
-    // display outcome
-    gameResult.textContent = `YOU WIN! | Player: ${playerChoice.toUpperCase()} | Computer: ${computerChoice.toUpperCase()}`;
-    
-    // update score
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const updateScore = (result) => {
+  if (result) {
     playerScore++;
     playerPoint.textContent = playerScore.toString();
     return;
   } else {
-    // display outcome
-    gameResult.textContent = `COMPUTER WIN! | Player: ${playerChoice.toUpperCase()} | Computer: ${computerChoice.toUpperCase()}`;
-    // udpate score
     computerScore++;
     computerPoint.textContent = computerScore.toString();
     return;
   }
-}
+};
 
-startBtn.addEventListener("click", startGame);
-quitBtn.addEventListener("click", quitGame);
-gameChoices.addEventListener("click", (event) => {
-  
-  if (event.target.classList.contains("game-choices__btn")) {
-    playRound(event.target.textContent.trim().toLowerCase());
+const playRound = (playerChoice) => {
+  const computerChoices = ["rock", "paper", "scissors"];
+  const computerChoice =
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+  const roundResult = getRoundResult(playerChoice, computerChoice);
+  console.log(roundResult);
+
+  if (roundResult === undefined) {
+    gameResult.textContent = `IT'S A TIE! | Player: ${playerChoice.toUpperCase()} | Computer: ${computerChoice.toUpperCase()}`;
+    return;
   }
 
-  // ends the game
+  if (getRoundResult(playerChoice, computerChoice)) {
+    gameResult.textContent = `YOU WIN! | Player: ${playerChoice.toUpperCase()} | Computer: ${computerChoice.toUpperCase()}`;
+    updateScore(roundResult);
+    return;
+  } else {
+    gameResult.textContent = `COMPUTER WIN! | Player: ${playerChoice.toUpperCase()} | Computer: ${computerChoice.toUpperCase()}`;
+    updateScore(roundResult);
+    return;
+  }
+};
+
+const endGame = () => {
   if (playerScore === 5 || computerScore === 5) {
     quitBtn.disabled = true;
     rockBtn.disabled = true;
@@ -87,4 +100,13 @@ gameChoices.addEventListener("click", (event) => {
     playerScore = 0;
     computerScore = 0;
   }
+};
+
+startBtn.addEventListener("click", startGame);
+quitBtn.addEventListener("click", quitGame);
+gameChoices.addEventListener("click", (event) => {
+  if (event.target.classList.contains("game-choices__btn")) {
+    playRound(event.target.textContent.trim().toLowerCase());
+  }
+  endGame();
 });
