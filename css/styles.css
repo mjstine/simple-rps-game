@@ -234,7 +234,8 @@ button:disabled {
   text-align: center;
 }
 
-footer {
+.footer__txt {
+  font-size: 12.80px;
   text-align: center;
 }
 
