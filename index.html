@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="content">
-            <div class="header">
-                <h1 class="header__title">Rock, Paper, Scissors</h1>
-            </div>
-
-            <div class="main">
-                <div class="game-controls">
-                    <button class="game-controls__btn" id="startBtn">Let's Play!</button>
-                    <button class="game-controls__btn game-controls__btn--quit" id="quitBtn" disabled>Quit</button>
-                </div>
-    
-                <div class="scoreboard">
-                    <p class="scoreboard__txt">Player: <span id="playerPoint">0</span></p>
-                    <p class="scoreboard__txt">Computer: <span id="computerPoint">0</span></p>
-                </div>
-    
-                <div class="game-choices">
-                    <button class="game-choices__btn" id="rockBtn" disabled>Rock</button>
-                    <button class="game-choices__btn" id="paperBtn" disabled>Paper</button>
-                    <button class="game-choices__btn" id="scissorsBtn" disabled>Scissors</button>
-                </div>
-    
-                <div class="game-result">
-                    <p class="game-result__txt" id="gameResult"></p>
-                </div>
-            </div>
+      <div class="content">
+        <div class="header">
+          <h1 class="header__title">Rock, Paper, Scissors</h1>
         </div>
-        
 
-        
+        <div class="main">
+          <div class="game-controls">
+            <button class="game-controls__btn" id="startBtn">
+              Let's Play!
+            </button>
+            <button
+              class="game-controls__btn game-controls__btn--quit"
+              id="quitBtn"
+              disabled
+            >
+              Quit
+            </button>
+          </div>
+
+          <div class="scoreboard">
+            <p class="scoreboard__txt">
+              Player: <span id="playerPoint">0</span>
+            </p>
+            <p class="scoreboard__txt">
+              Computer: <span id="computerPoint">0</span>
+            </p>
+          </div>
+
+          <div class="game-choices">
+            <button class="game-choices__btn" id="rockBtn" disabled>
+              Rock
+            </button>
+            <button class="game-choices__btn" id="paperBtn" disabled>
+              Paper
+            </button>
+            <button class="game-choices__btn" id="scissorsBtn" disabled>
+              Scissors
+            </button>
+          </div>
+
+          <div class="game-result">
+            <p class="game-result__txt" id="gameResult"></p>
+          </div>
+        </div>
+        <footer>&copy; Copyright 2023 | Marnel Justine</footer>
+      </div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
