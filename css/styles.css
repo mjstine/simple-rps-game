@@ -1,129 +1,244 @@
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.container  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #FED049;
-    box-shadow: 0 0 0 100vmax #FED049;
-    clip-path: inset(0 -100vmax);
-    margin: 0 5%;
+* {
+  /* outline: 1px dashed teal; */
 }
 
-.header {
-    padding: 4rem 0;
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #eeeeee;
+  background-color: #4c4c6d;
+}
+
+.container,
+.content,
+.game-controls,
+.game-choices,
+.main,
+.scoreboard {
+  display: flex;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.header,
+.main {
+  padding: 16px 0;
+}
+
+.content,
+.main,
+.game-choices {
+  flex-direction: column;
+}
+
+.content {
+  width: 50vw;
+  gap: 16px;
 }
 
 .header__title {
-    font-size: 3.052rem;
-    font-family: 'Bubblegum Sans', cursive;
-    text-align: center;
+  font-size: 48.83px;
+  font-family: "Bubblegum Sans", cursive;
+  text-align: center;
 }
 
-.main, .game-controls, .scoreboard, .game-choices {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+.main,
+.game-controls,
+.game-choices {
+  gap: 8px;
 }
 
-.main {
-    flex-direction: column;
-    padding: 2rem 0;
+button {
+  padding: 16px 32px;
+  cursor: pointer;
 }
 
+.game-controls,
+.game-choices,
 .scoreboard {
-    padding: 2rem 0;
+  justify-content: space-evenly;
 }
 
-.scoreboard__txt {
-    font-size: 1.953rem;
-    font-family: 'Bubblegum Sans', cursive;
+.game-controls,
+.scoreboard,
+.game-choices {
+  padding: 16px;
 }
 
-.game-result__txt, .game-controls__btn, .game-choices__btn {
-    font-size: 1rem;
-    font-family: 'Open Sans', sans-serif;
+.game-controls__btn,
+.game-choices__btn {
+  font-size: 16px;
+  flex: 1;
 }
 
-.game-controls__btn, .game-choices__btn {
-    font-size: 1rem;
-    font-family: 'Open Sans', sans-serif;
-    border: 4px solid black;
-    border-radius: .5rem;
-    cursor: pointer;
-}
-
-.game-controls__btn {
-    background-color: #68B984;
-    padding: 1rem 2rem;
-}
-
-.game-controls__btn--quit:disabled, .game-choices__btn:disabled {
-    opacity: 0.75;
-    cursor: not-allowed;
+.game-controls__btn,
+.game-choices__btn {
+  color: #eeeeee;
+  background-color: #1b9c85;
+  border: 2px solid #eeeeee;
+  border-radius: 32px;
 }
 
 .game-controls__btn--quit {
-    color: #FFFFFF;
-    background-color: #3D5656;
-    opacity: 1;
+  color: #eeeeee;
+  background-color: #f45050;
 }
 
-.game-choices__btn {
-    background-color: #CFFDE1;
-    padding: 1.5rem 3rem;
-    opacity: 1;
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
+.scoreboard__txt {
+  font-size: 25px;
+}
+
+.game-result__txt {
+  font-size: 16px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+    .container {
+        padding: 32px 0;
+    }
+    .content {
+        width: 100vw;
+    }
+}
