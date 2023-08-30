@@ -1,38 +1,75 @@
-# Rock, Paper, Scissors Game
+# Rock, Paper, Scissors
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Demo](#demo)
+- [What is the Rock, Paper, Scissors Game?](#what-is-the-rock-paper-scissors-game)
+- [Why I Started This Project](#why-i-started-this-project)
 - [Acknowledgments](#acknowledgments)
-- [Contribution and Feedback](#contributions-and-feedback)
+- [Usage](#usage)
+- [Code Overview](#code-overview)
+- [Contributions and Feedback](#contributions-and-feedback)
 
 ## Introduction
 
-Explore the Rock, Paper, Scissors Game project—a testament to my application of fundamental JavaScript skills. This venture amalgamates essential JavaScript principles—embracing variables, numbers, operators, strings, conditionals, functions, arrays, loops, and DOM manipulation—culminating in a harmoniously integrated and captivating experience. By exploring this project, you'll witness how I've translated the classic Rock, Paper, Scissors game into a digital experience, while underscoring my commitment to crafting clean, maintainable code.
+Welcome to the Rock, Paper, Scissors game project! This project brings the classic Rock, Paper, Scissors game to your web browser. Using HTML, CSS, and JavaScript, the game allows you to play against the computer and test your luck in this iconic game of choices.
 
-### What is the Rock, Paper, Scissors Game?
+### Features
 
-The primary aim of this project is to exhibit my proficiency in JavaScript programming, particularly in the context of web development. I've implemented the popular Rock, Paper, Scissors game, highlighting my understanding of core programming concepts. Dive into the code to see how user choices are evaluated, outcomes determined, and the DOM manipulated to create an engaging user experience.
+- Play Rock, Paper, Scissors against the computer
+- Keep track of player and computer scores
+- Simple and intuitive user interface
 
-### Why I Started This Project
-
-As an enthusiastic learner following The Odin Project's curriculum, I embarked on this project to reinforce and apply the programming skills I've acquired so far. The Rock, Paper, Scissors game provided an excellent opportunity for me to implement what I've learned, from basic variable manipulation to more complex logic involving conditions and loops.
-
-The Odin Project's structured and hands-on approach to teaching web development has been instrumental in guiding my learning journey. This project stands as a testament to my dedication to learning and growing as a web developer through practical application.
+Experience the excitement of playing Rock, Paper, Scissors in a digital format while exploring the world of web development.
 
 ## Demo
 
-Experience the Rock, Paper, Scissors Game in action: [Live Demo](https://mjstine.github.io/simple-rps-game/)
+See the Rock, Paper, Scissors game in action: [Live Demo](https://mjstine.github.io/simple-rps-game/) 
+
+## What is the Rock, Paper, Scissors Game?
+
+The Rock, Paper, Scissors game is a simple yet engaging game where two players choose from three possible options: rock, paper, or scissors. Each choice can either defeat or be defeated by another choice. In this project, you'll be playing against the computer, testing your luck and decision-making skills.
+
+## Why I Started This Project
+
+As a passionate developer, I created the Rock, Paper, Scissors game to pay tribute to a timeless game that's enjoyed by people of all ages. This project provided an opportunity to apply my HTML, CSS, and JavaScript skills to create an interactive game that captures the essence of this classic game.
+
+Additionally, I wanted to showcase the power of front-end web development in creating simple yet enjoyable user experiences. Through this project, I aimed to demonstrate how programming languages and technologies can come together to bring a well-known game to life in a digital format.
 
 ## Acknowledgments
 
-I would like to extend my heartfelt gratitude to [The Odin Project](https://www.theodinproject.com/) for their exceptional curriculum and resources. This project wouldn't have been possible without their comprehensive and structured approach to teaching web development. The hands-on assignments, tutorials, and projects provided by [The Odin Project](https://www.theodinproject.com/) have been instrumental in honing my skills and enabling me to create this rock, paper, scissors game.
+This project was made possible with the help of various resources and inspirations:
+
+- [Font Awesome](https://fontawesome.com/) for the icons used in the app interface.
+- [The Odin Project](https://www.theodinproject.com/)'s curriculum for providing guidance and learning materials.
+
+## Usage
+
+To play the Rock, Paper, Scissors game:
+
+1. Open the [Live Demo](https://mjstine.github.io/simple-rps-game/) in your web browser.
+2. Click the "Let's Play!" button to start a new game.
+3. Choose between Rock, Paper, or Scissors by clicking the respective button.
+4. The game will determine the winner of each round and update the scores accordingly.
+5. You can quit the game by clicking the "Quit" button at any time.
+
+Challenge yourself and see if you can outwit the computer in this classic game!
+
+### Code Overview
+
+The project consists of three main files:
+
+- `index.html`: The HTML structure of the Rock, Paper, Scissors game interface.
+- `css/styles.css`: The CSS file defining the visual styling of the game.
+- `js/script.js`: The JavaScript file implementing the game logic and functionality.
 
 ## Contributions and Feedback
 
-Contributions and feedback are warmly welcomed and highly valued. If you have suggestions for enhancing this project or encounter any issues, please don't hesitate to open an issue or submit a pull request on [GitHub](https://github.com/mjstine/simple-rps-game).
+Contributions and feedback are highly appreciated! If you have suggestions for improving the app or encounter any issues, please feel free to open an issue or submit a pull request on [GitHub](https://github.com/mjstine/simple-rps-game).
 
-Your input will play a significant role in refining this project and benefiting other developers who explore this repository. Let's collaborate, learn, and evolve together!
+Your input will help enhance the project and contribute to the learning experience of others who explore this repository. Let's collaborate, learn, and grow together!
 
 ---
+
+Copyright &copy; 2023 | [Marnel Justine](https://github.com/mjstine)
